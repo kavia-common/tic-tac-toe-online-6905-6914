@@ -1,82 +1,55 @@
-# Lightweight React Template for KAVIA
+# Tic Tac Toe Game
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+A modern implementation of the classic Tic Tac Toe game built with React.
 
 ## Features
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+- Two game modes: Player vs Player and Player vs AI
+- Clean, modern UI with Ocean Professional theme
+- Responsive design for all screen sizes
+- Accessibility features including ARIA labels
+- Game controls:
+  - New Game: Reset the current game
+  - vs AI/vs Player: Toggle between AI and human opponent
+  - Player Switch: Change the current player (X/O)
+
+## Theme
+
+The game uses the Ocean Professional theme with the following colors:
+- Primary: #2563EB (Blue)
+- Secondary: #F59E0B (Amber)
+- Error: #EF4444 (Red)
+- Background: #f9fafb
+- Surface: #ffffff
+- Text: #111827
 
 ## Getting Started
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-### `npm test`
-
-Launches the test runner in interactive watch mode.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
+1. Install dependencies:
+```bash
+npm install
 ```
 
-### Components
+2. Start the development server:
+```bash
+npm start
+```
 
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
+3. Open [http://localhost:3000](http://localhost:3000) to play the game.
 
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
+## Game Rules
 
-## Learn More
+- X always goes first
+- Players take turns placing their marks (X or O)
+- First player to get 3 in a row (horizontally, vertically, or diagonally) wins
+- When all 9 squares are filled and no winner, the game is a draw
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## AI Strategy
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The AI opponent follows these priorities:
+1. Win if possible
+2. Block opponent from winning
+3. Take center square if available
+4. Take corner squares
+5. Take side squares
+This creates a challenging but beatable opponent.
